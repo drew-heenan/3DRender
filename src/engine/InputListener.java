@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import javax.swing.DebugGraphics;
 import javax.swing.JFrame;
 
 public class InputListener implements MouseListener, MouseWheelListener, MouseMotionListener, KeyListener, WindowListener{
@@ -217,6 +218,10 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 	@Override
 	public void keyPressed(KeyEvent e) {
 		InputType t = InputType.KEY_PRESSED;
+		if(pressedKeys.containsKey(e.getKeyCode()))
+			pressedKeys.put(e.getKeyCode(), true);
+		else
+			pressedKeys.put(e.getKeyCode(), false);
 		for(Object o : targets.get(t)){
 			try {
 				o.getClass().getMethod("keyPressed", KeyEvent.class).invoke(o, e);
@@ -227,7 +232,8 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 				e1.printStackTrace();
 			}
 		}
-		pressedKeys.put(e.getKeyCode(), false);
+		Log.say(e.getKeyCode() + " : " + pressedKeys.get(e.getKeyCode()));
+		
 		
 	}
 
