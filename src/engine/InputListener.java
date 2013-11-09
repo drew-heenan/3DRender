@@ -1,5 +1,6 @@
 package engine;
 
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -24,6 +25,7 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 	private static boolean isLeftDown = false;
 	private static boolean isRightDown = false;
 	private static boolean isMiddleDown = false;
+	private static Point mousePos = new Point(0, 0);
 	
 	public InputListener(JFrame parent){
 		parent.addMouseListener(this);
@@ -91,6 +93,10 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 	
 	public static boolean isMiddleMouseDown(){
 		return isMiddleDown;
+	}
+	
+	public static Point getMousePosition(){
+		return mousePos;
 	}
 	
 	
@@ -221,6 +227,7 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 				e1.printStackTrace();
 			}
 		}
+		pressedKeys.put(e.getKeyCode(), false);
 		
 	}
 
@@ -237,6 +244,7 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 				e1.printStackTrace();
 			}
 		}
+		pressedKeys.remove(e.getKeyCode());
 		
 	}
 
@@ -395,6 +403,7 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 				e1.printStackTrace();
 			}
 		}
+		mousePos.setLocation(e.getX(), e.getY());
 		
 	}
 	
