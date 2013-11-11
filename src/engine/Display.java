@@ -4,6 +4,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class Display extends JFrame{
 	
 	private static boolean closeRequested = false;

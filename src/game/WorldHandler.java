@@ -31,6 +31,7 @@ public class WorldHandler {
 				return w;
 			}
 		}
+		return null;
 	}
 
 }

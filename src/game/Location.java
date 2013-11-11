@@ -34,12 +34,32 @@ public class Location {
 		return z;
 	}
 	
+	public void setX(double x){
+		this.x = x;
+	}
+	
+	public void setY(double y){
+		this.y = y;
+	}
+	
+	public void setZ(double z){
+		this.z = z;
+	}
+	
 	public double getPitch(){
 		return pitch;
 	}
 	
 	public double getYaw(){
 		return yaw;
+	}
+	
+	public void setPitch(double pitch){
+		this.pitch = pitch;
+	}
+	
+	public void setYaw(double yaw){
+		this.yaw = yaw;
 	}
 
 	public World getWorld() {
@@ -51,6 +71,11 @@ public class Location {
 		return Math.sqrt(((l1.getX() - l2.getX()) * (l1.getX() - l2.getX()))
 				+ ((l1.getY() - l2.getY()) * (l1.getY() - l2.getY()))
 				+ ((l1.getZ() - l2.getZ()) * (l1.getZ() - l2.getZ())));
+	}
+	
+	@Override
+	public String toString(){
+		return "(" + x + ", " + y + ", " + z + ") " + "yaw: " + yaw + " pitch: " + pitch;
 	}
 
 }
