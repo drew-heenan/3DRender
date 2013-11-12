@@ -1,10 +1,14 @@
 package game;
 
-import java.io.File;
+import java.util.ArrayList;
 
 public class Model {
 	
-	public Model(File f){
+	public Model(){
+		
+	}
+	
+	public void set(ArrayList<Point3D> pnts){
 		
 	}
 }

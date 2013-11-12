@@ -65,6 +65,16 @@ public class Location {
 	public World getWorld() {
 		return world;
 	}
+	
+	public void set(double x, double y, double z){
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
+	public Point3D toPoint3D(){
+		return new Point3D(x, y, z);
+	}
 
 	public double getDistance(Location l1) {
 		Location l2 = this;

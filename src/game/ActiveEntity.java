@@ -3,7 +3,7 @@ package game;
 public abstract class ActiveEntity extends Entity{
 	
 	protected ForceSet forces = null;
-	protected Vector vector;
+	protected Vector vector = new Vector(0, 0, 0);
 
 	public ActiveEntity(Location loc) {
 		super(loc);
@@ -12,8 +12,9 @@ public abstract class ActiveEntity extends Entity{
 	public abstract void update();
 	
 	protected void updatePosition(){
+		System.out.println(vector);
+		this.loc.set(loc.getX() + vector.getX(), loc.getY() + vector.getY(), loc.getZ() + vector.getZ());
 		vector.update(this);
-		
 	}
 	
 	public void setForceSet(ForceSet forces){

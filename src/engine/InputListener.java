@@ -231,7 +231,6 @@ public class InputListener implements MouseListener, MouseWheelListener, MouseMo
 				e1.printStackTrace();
 			}
 		}
-		Log.say(e.getKeyCode() + " : " + pressedKeys.get(e.getKeyCode()));
 		
 		
 	}
